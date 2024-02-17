@@ -1,0 +1,84 @@
+<header class="header" [ngClass]="{ active: isVerticalScroll }">
+  <div id="menu-btn" (click)="onMenuBtnClick()">
+    <i class="fas fa-bars" *ngIf="!isMenuVisible"></i>
+    <i class="fas fa-times" *ngIf="isMenuVisible"></i>
+  </div>
+  <a href="#" class="logo">
+    <img [src]="logo" alt="MoveStone" />
+  </a>
+
+  <nav
+    class="navbar-section"
+    [ngClass]="{ active: isMenuVisible }"
+    (click)="selectNavOptions()"
+  >
+    <a
+      class="cursor-pointer"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      routerLink="/"
+    >
+      home
+    </a>
+    <a
+      class="cursor-pointer"
+      routerLink="/pages/products"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      vehicles
+    </a>
+    <a class="cursor-pointer" (click)="onClickAnchor('services')">services</a>
+    <a class="cursor-pointer" (click)="onClickAnchor('reviews')">reviews</a>
+    <a
+      class="cursor-pointer"
+      routerLink="/pages/contact"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      contact
+    </a>
+    @if (!isUserLoggedIn && !getUserName) {
+    <a id="nav-login-btn" (click)="onLoginBtnClick()">
+      <button type="button" class="nav-login-btn btn">Login</button>
+    </a>
+    }
+  </nav>
+
+  @if (!isUserLoggedIn && !getUserName) {
+  <div id="login-btn" (click)="onLoginBtnClick()">
+    <button type="button" class="btn">Login</button>
+    <span id="login-icon">
+      <i class="far fa-user"></i>
+    </span>
+  </div>
+  } @else {
+  <label class="loggedin-user" for="loggedin-user" [cdkMenuTriggerFor]="menu">
+    <i id="loggedin-user" class="fas fa-user"></i>
+  </label>
+  <ng-template #menu>
+    <div class="loggedin-menu" cdkMenu>
+      <div class="loggedin-menu-item menu-heading">
+        {{ getUserName.toUpperCase() }}
+      </div>
+      <button
+        type="button"
+        class="loggedin-menu-item"
+        cdkMenuItem
+        (click)="logout()"
+      >
+        Logout
+      </button>
+      <button
+        type="button"
+        class="loggedin-menu-item"
+        cdkMenuItem
+        (click)="navigateToQuery()"
+      >
+        Check Queries
+      </button>
+    </div>
+  </ng-template>
+
+  }
+</header>

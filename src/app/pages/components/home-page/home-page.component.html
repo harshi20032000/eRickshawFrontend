@@ -1,0 +1,326 @@
+@defer (on viewport) {
+<section id="home" class="home">
+  <h1 class="home-parallax" data-speed="-2">Explore Opportunities</h1>
+  <img
+    class="home-parallax"
+    data-speed="5"
+    src="../../../../assets/images/Home_Car_Collection.jpg"
+    alt=""
+  />
+  <a
+    href="#"
+    class="btn home-parallax"
+    data-speed="7"
+    routerLink="/pages/products"
+    >Explore Products</a
+  >
+</section>
+} @placeholder {
+<div>Home Section</div>
+} @defer (on viewport) {
+<section id="icons" class="icons-container">
+  <div class="icons">
+    <i class="fas fa-home"></i>
+    <div class="content">
+      <h3>150+</h3>
+      <p>branches</p>
+    </div>
+  </div>
+  <div class="icons">
+    <i class="fas fa-car"></i>
+    <div class="content">
+      <h3>4770+</h3>
+      <p>cars sold</p>
+    </div>
+  </div>
+  <div class="icons">
+    <i class="fas fa-users"></i>
+    <div class="content">
+      <h3>590+</h3>
+      <p>happy clients</p>
+    </div>
+  </div>
+  <div class="icons">
+    <i class="fas fa-car"></i>
+    <div class="content">
+      <h3>40+</h3>
+      <p>new cars</p>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>Icons Section</div>
+} @defer (on viewport) {
+<section *ngIf="contents.length > 0" class="vehicles" id="vehicles">
+  <h1 class="heading">popular <span>vehicles</span></h1>
+
+  <swiper-container
+    fmSwiper
+    [config]="contents.length > 8 ? vehicleConfig : staticConfig"
+    init="false"
+    class="vehicles-slider"
+  >
+    @for (eachProduct of contents; track eachProduct) {
+    <swiper-slide class="box">
+      <img [src]="eachProduct?.imageURL" alt="image" loading="lazy" />
+      <div class="content">
+        <h3>{{ eachProduct.productName }}</h3>
+        <div class="price">
+          <span>price: </span>
+          ₹ {{ eachProduct.price.split("-")[0] }} - ₹
+          {{ eachProduct.price.split("-")[1] }}
+        </div>
+        <p>
+          new @for(eachFeature of eachProduct?.features?.split(',');track
+          eachFeature){
+          <span class="fas fa-circle"></span> {{ eachFeature }}
+          }
+        </p>
+        <button
+          type="button"
+          class="btn"
+          (click)="checkProduct(eachProduct.productID)"
+        >
+          Check Out
+        </button>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</section>
+} @placeholder {
+<div>Vehicles Section</div>
+} @defer (on viewport) {
+<section id="services" class="services">
+  <h1 class="heading">our <span>services</span></h1>
+  <div class="box-container">
+    <div class="box">
+      <i class="fas fa-car"></i>
+      <h3>Electric Rickshaw Sales</h3>
+      <p>
+        Visit nearest movestone outlet to buy e-rickshaw in Kolkata.
+        Also you can put enquiry here, our sales person will call you.
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+    <div class="box">
+      <i class="fas fa-tools"></i>
+      <h3>Spare Parts Sales</h3>
+      <p>
+        We sale only genuine and branded products with high end warranty. 
+        Check our products catalogue or visit offline.
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+    <div class="box">
+      <i class="fas fa-car-crash"></i>
+      <h3>Full Insurance</h3>
+      <p>
+        Our Partner Insurance Company covers EVs from any potential financial loss or damage in case of events like accidents.
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+    <div class="box">
+      <i class="fas fa-battery"></i>
+      <h3>Battery Replacement</h3>
+      <p>
+        Replace your old battery with original OEM batteries of your choice and sell old batteries at one place.
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+    <div class="box">
+      <i class="fas fa-gas-pump"></i>
+      <h3>Become a Dealer</h3>
+      <p>
+        We would like you to be a part of our future forward journey. 
+        Please contact our office or fill form on this link to apply for movestone India Dealerships
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+    <div class="box">
+      <i class="fas fa-headset"></i>
+      <h3>24/7 support</h3>
+      <p>
+        Regardless of whether you have to get a tyre changed, need an expert look into the electric vehicle’s motor/battery, etc.
+         You can reach out to us at any time and avail yourself of the spot assistance for diverse situations.
+      </p>
+      <a href="#" class="btn">read more</a>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>Services Section</div>
+} @defer (on viewport) {
+<section id="newsletter" class="newsletter">
+  <h1>subscribe for latest updates</h1>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consequatur
+    molestias quo.
+  </p>
+  <form>
+    <input
+      type="email"
+      name="email-input"
+      id="email-input"
+      placeholder="Enter Your Email"
+    />
+    <button type="button">Submit</button>
+  </form>
+</section>
+} @placeholder {
+<div>Newsletter Section</div>
+} @defer (on viewport) {
+<section *ngIf="testimonials.length > 0" id="reviews" class="review">
+  <h1 class="heading">Client's <span>Review</span></h1>
+
+  <swiper-container
+    fmSwiper
+    [config]="reviewConfig"
+    init="false"
+    class="review-slider"
+  >
+    @for(eachTestimonial of testimonials; track eachTestimonial){
+    <swiper-slide class="box">
+      <i class="fas fa-user user-icon"></i>
+      <div class="content">
+        <p>
+          {{ eachTestimonial.testimonial }}
+        </p>
+        <h3>{{ eachTestimonial.testimonialAuthor }}</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+
+    <swiper-slide class="box">
+      <i class="fas fa-user user-icon"></i>
+      <div class="content">
+        <p>
+          I have purchased movestone deluxe, did 1lac km, most appropriate for bussiness in city.
+          It's good rickshaw for city but definitely  not recommended  for highway. 
+          Battery efficiency best, seat capacity people.
+        </p>
+        <h3>John Deo</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="box">
+      <i class="fas fa-user user-icon"></i>
+      <div class="content">
+        <p>
+          This new mV Loader is super choice. Better than other ev loaders, if you have budget constraints and need rugged rickshaw for cargo transport then this is the best choice. 
+          Using this 2nd Jan, awesome choice, Superb, 10/10.
+        </p>
+        <h3>Shubhayu Dasgupta</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="box">
+      <i class="fas fa-user user-icon"></i>
+      <div class="content">
+        <p>
+          Owning an movestoneSuper since last 1.5yrs with 4.5Lacs kms driven.
+          Still it's giving half day mileage.
+          In the new era of environment friendliness. we're happy with our low maintenance nd high battery efficient TOTO..
+        </p>
+        <h3>Harshikesh Dubey</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="box">
+      <i class="fas fa-user user-icon"></i>
+      <div class="content">
+        <p>
+          Bhai supper gadi hai , dusre brands thode cheap lagte, ye wali bhut badi h ye 👌👌👌 ,, smo0th speed se chalati hai , na koi vibration na kuch or , bhut smoth hai ✅✅
+        </p>
+        <h3>Soumyajit Sarkar</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</section>
+} @placeholder {
+<div>Reviews Section</div>
+} @defer (on viewport) {
+<section id="contact" class="contact">
+  <h1 class="heading"><span>contact </span> us</h1>
+
+  <div class="row">
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235850.8115155397!2d88.1828891054038!3d22.535343793821482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1701868996187!5m2!1sen!2sin"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <form [formGroup]="queryForm" action="">
+      <h3>get in touch</h3>
+      <input
+        formControlName="queryName"
+        type="text"
+        placeholder="Enter your name"
+        name="name"
+        id="name"
+      />
+      <input
+        formControlName="queryEmail"
+        type="email"
+        placeholder="Enter your email"
+        name="email"
+        id="email-contact"
+      />
+      <input
+        formControlName="queryPhone"
+        formControlName="queryPhone"
+        type="number"
+        placeholder="Enter phone number"
+        name="number"
+        id="number"
+      />
+      <textarea
+        formControlName="queryMessage"
+        placeholder="Type your message"
+        name="message"
+        id="message"
+      ></textarea>
+      <button (click)="sendQuery()" type="button" class="btn">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+} @placeholder {
+<div>Contact Section</div>
+}

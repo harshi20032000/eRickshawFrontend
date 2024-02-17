@@ -1,0 +1,98 @@
+@defer (on viewport) {
+<section id="contact-section" class="contact-section">
+  <div class="title">
+    <h1 class="heading">Get In <span>Touch</span></h1>
+  </div>
+
+  <div class="contact-view">
+    <div class="contact">
+      <h1 class="heading">contact us</h1>
+
+      <form [formGroup]="queryForm" action="">
+        <input
+          autocomplete="name"
+          type="text"
+          formControlName="queryName"
+          placeholder="Enter your name"
+          name="name"
+          id="name"
+        />
+        <input
+          autocomplete="off"
+          type="email"
+          formControlName="queryEmail"
+          placeholder="Enter your email"
+          name="email"
+          id="email-contact"
+        />
+        <input
+          autocomplete="off"
+          type="number"
+          formControlName="queryPhone"
+          placeholder="Enter your number"
+          name="number"
+          id="number"
+        />
+        <textarea
+          autocomplete="off"
+          placeholder="Enter your message"
+          formControlName="queryMessage"
+          name="message"
+          id="message"
+          rows="10"
+        ></textarea>
+        <button (click)="sendQuery()" type="button" class="btn">send message</button>
+      </form>
+    </div>
+    <div class="company-info">
+      <div class="about-section">
+        <h2>Contact Info</h2>
+        <a href="#"><i class="fas fa-phone"></i> +9831317367</a>
+        <a href="#"><i class="fas fa-phone"></i> 7595823939</a>
+        <a href="#"><i class="fas fa-envelope"></i> soumyajit&#64;gmail.com</a>
+        <a href="#">
+          <i class="fas fa-location-dot"></i> 
+           HOWRAH,WEST BENGAL:711103
+        </a>
+        <div class="social-link">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-linkedin"></i>
+        </div>
+      </div>
+      <div class="map">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235850.8115155397!2d88.1828891054038!3d22.535343793821482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1701868996187!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>Contact Section</div>
+} @defer (on viewport) {
+<section id="conatct-newsletter" class="conatct-newsletter">
+  <h1>subscribe for latest updates</h1>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consequatur
+    molestias quo.
+  </p>
+  <form>
+    <input
+      type="email"
+      name="email"
+      id="contact-email"
+      placeholder="Enter Your Email"
+    />
+    <button type="button">Submit</button>
+  </form>
+</section>
+} @placeholder {
+<div>Newsletter Section</div>
+}

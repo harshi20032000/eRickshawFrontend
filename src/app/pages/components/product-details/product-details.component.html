@@ -1,0 +1,264 @@
+@defer (on viewport) {
+<section id="product-view" class="product-view">
+  <div class="small-container">
+    <div class="row">
+      <div class="col-6">
+        <div class="image-display">
+          <img [src]="selectedImage" alt="Image" />
+        </div>
+
+        <div class="small-img-row">
+          <div class="small-img-col" *ngFor="let eachImage of images">
+            <img
+              [src]="eachImage.productImageURL"
+              alt="Image-{{ eachImage.id }}"
+              (click)="changeSelectedImage(eachImage.productImageURL)"
+            />
+          </div>
+          <a class="view-more" (click)="showAllImages()">View All</a>
+        </div>
+      </div>
+      <div class="col-6">
+        <p>Product / Vehicle</p>
+        <h1>{{ product.productName }}</h1>
+        <h4>
+          ₹ {{ product.price.split("-")[0] }} - ₹
+          {{ product.price.split("-")[1] }}
+        </h4>
+
+        <div class="color-section">
+          <h4>Colour: {{ selectedColor }}</h4>
+          <div class="colors">
+            @for (eachColor of colors; track eachColor) {
+            <div
+              class="color"
+              [ngStyle]="{ background: eachColor[1] }"
+              (mouseover)="changeSelectedColor(eachColor[0])"
+            ></div>
+            }
+          </div>
+        </div>
+        <!-- <input t`ype="number" title="quantity" value="1" /> -->
+        <button type="button" (click)="onQueryRaise('contact')" class="btn">
+          Raise Query
+        </button>
+
+        <h3>Product Details <i class="fa fa-indent"></i></h3>
+        <p>
+          Presenting Electric Rickshaws that are known for their latest advanced features, reliability and mileage.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>product View Section</div>
+}@defer (on viewport) {
+<section id="product-feature" class="product-feature">
+  <h1 class="heading"><span>Product</span> Features</h1>
+  <div class="box-container">
+    <div class="features">
+      <div class="intro">
+        <h1>Technology</h1>
+        <p>
+          Advanced features. Upgraded riding experience. Enabled by MOVEStone.
+        </p>
+      </div>
+      <div class="feature feature-1">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Wheels and Roof</h1>
+            <P><b>Rim</b> : {{ product.rim }} </P>
+            <P><b>Tyre Diameter</b> : {{ product.tyreDiameter }} </P>
+            <P><b>Tyre Type</b> : {{ product.tyreType }} </P>
+          </div>
+        </mat-card>
+      </div>
+      <div class="feature feature-2">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Lights and Mileage</h1>
+            <p><b>HeadLight</b> : {{ product.headLight }}</p>
+            <p><b>Mileage</b> : {{ product.mileage }} Km+</p>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature feature-3">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Electrical Items</h1>
+            <p><b>Controller</b> : {{ product.controller }}</p>
+            <p><b>Converter</b> : {{ product.converter }}</p>
+          </div>
+        </mat-card>
+      </div>
+      <div class="feature feature-4">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Battery and Dimention</h1>
+            <p><b>Battery</b> : {{ product.battery }}</p>
+            <p>
+              <b>Length</b> :
+              {{ product.bodyDimension.split("-")[0].slice(0, -1) }}
+            </p>
+            <p>
+              <b>Width</b> :
+              {{ product.bodyDimension.split("-")[1].slice(0, -1) }}
+            </p>
+            <p>
+              <b>Height</b> :
+              {{ product.bodyDimension.split("-")[2].slice(0, -2) }}
+            </p>
+            <p><b>Type</b> : {{ product.breakType }}</p>
+          </div>
+        </mat-card>
+      </div>
+      <div class="feature feature-5">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Seating and Suspension</h1>
+            <P><b>Seating Capacity</b> : {{ product.seatingCapacity }} </P>
+            <P><b>Side Cover</b> : <br />{{ product.sideCover }} </P>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature feature-6">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Charger and Roof</h1>
+            <p><b>Charger</b> : {{ product.charger }}</p>
+            <P><b>Roof</b> : {{ product.roof }} </P>
+            <P><b>Shocker</b> : {{ product.shocker }} </P>
+          </div>
+        </mat-card>
+      </div>
+      <div class="feature feature-7">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>Energy Insights</h1>
+            <p>Understand your vehicle's energy usage.</p>
+          </div>
+        </mat-card>
+      </div>
+      <div class="feature feature-8">
+        <mat-card class="example-card">
+          <img mat-card-image />
+          <div class="desc">
+            <h1>
+              Motor and Weight <br />
+              Distribution
+            </h1>
+            <P
+              ><b>Weight (Without Battery)</b> :
+              {{ product.weightWithoutBattery }} KG apx.
+            </P>
+            <p><b>Motor</b> : {{ product.motor }}</p>
+            <P><b>Wiper</b> : {{ product.wiper }} </P>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>Products Section</div>
+} @defer (on viewport) {
+<section id="products" class="products">
+  <h1 class="heading">Related <span>Products</span></h1>
+  <div class="box-container">
+    <div class="box" *ngFor="let eachProduct of otherProducts">
+      <img [src]="eachProduct.imageURL" alt="" loading="lazy" />
+      <div class="content">
+        <h3>{{ eachProduct.productName }}</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <h3 class="price">
+          <span>price: </span> ₹ {{ eachProduct.price.split("-")[0] }} - ₹
+          {{ eachProduct.price.split("-")[1] }}
+        </h3>
+        <button class="btn" (click)="checkProduct(eachProduct.productID)">
+          Check Out
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<div>Products Section</div>
+} @defer (on viewport) {
+<section id="contact" class="contact">
+  <h1 class="heading"><span>Product </span> query</h1>
+
+  <div class="row">
+    <form [formGroup]="queryForm" action="">
+      <h3>get in touch</h3>
+      <div class="product-details-view">
+        <input
+          disabled
+          type="text"
+          placeholder="Car Name"
+          name="car_name"
+          id="car_name"
+          [value]="product.productName"
+        />
+        <input
+          disabled
+          type="text"
+          placeholder="Car ID"
+          name="car_id"
+          id="car_id"
+          [value]="product.productID"
+        />
+      </div>
+      <input
+        formControlName="queryName"
+        type="text"
+        placeholder="Enter Your Name"
+        name="name"
+        id="name"
+      />
+      <input
+        formControlName="queryEmail"
+        type="email"
+        placeholder="Enter Your Email"
+        name="email"
+        id="email-contact"
+      />
+      <input
+        formControlName="queryPhone"
+        type="tel"
+        placeholder="Enter Your Number"
+        name="number"
+        id="number"
+      />
+      <textarea
+        placeholder="Type your Message"
+        formControlName="queryMessage"
+        name="message"
+        id="message"
+      ></textarea>
+      <button (click)="sendQuery()" type="button" class="btn">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+} @placeholder {
+<div>Query Section</div>
+}

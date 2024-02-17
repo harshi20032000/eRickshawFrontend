@@ -1,0 +1,75 @@
+@defer (on viewport) {
+<section *ngIf="contents.length > 0" id="featured" class="featured">
+  <h1 class="heading"><span>Featured </span>Products</h1>
+
+  <swiper-container
+    fmSwiper
+    [config]="contents.length > 8 ? featureConfig : staticConfig"
+    init="false"
+    class="featured-slider"
+  >
+    @for (eachContent of contents; track eachContent) {
+    <swiper-slide class="box">
+      <img [src]="eachContent?.imageURL" alt="" loading="lazy" />
+      <div class="content">
+        <h3>{{ eachContent.productName }}</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="price">
+          <span>price: </span> ₹ {{ eachContent.price.split("-")[0] }} - ₹
+          {{ eachContent.price.split("-")[1] }}
+        </div>
+        <button
+          type="button"
+          class="btn"
+          (click)="checkProduct(eachContent.productID)"
+        >
+          Check Out
+        </button>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <swiper-container
+    fmSwiper
+    [config]="contents.length > 8 ? featureConfig : staticConfig"
+    init="false"
+    class="featured-slider"
+  >
+    @for (eachContent of contents; track eachContent) {
+    <swiper-slide class="box">
+      <img [src]="eachContent?.imageURL" alt="" loading="lazy" />
+      <div class="content">
+        <h3>{{ eachContent.productName }}</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="price">
+          <span>price: </span> ₹ {{ eachContent.price.split("-")[0] }} - ₹
+          {{ eachContent.price.split("-")[1] }}
+        </div>
+        <button
+          type="button"
+          class="btn"
+          (click)="checkProduct(eachContent.productID)"
+        >
+          Check Out
+        </button>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</section>
+} @placeholder {
+<div>Featured Section</div>
+}

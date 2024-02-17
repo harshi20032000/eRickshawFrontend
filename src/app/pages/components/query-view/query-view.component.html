@@ -1,0 +1,20 @@
+@defer (on viewport) {
+<section id="query-list-view" class="query-list-view">
+  <div class="mat-elevation-z8">
+    <mat-tab-group (selectedTabChange)="changeTableData($event)">
+      <mat-tab
+        [label]="eachTab.name"
+        [id]="eachTab.month"
+        *ngFor="let eachTab of tabs"
+      >
+        <app-query-list
+          [selectedTab]="selectedTab"
+          [ELEMENT_DATA]="filteredElementData"
+        ></app-query-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>
+} @placeholder {
+<div>product View Section</div>
+}
